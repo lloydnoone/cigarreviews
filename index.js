@@ -14,8 +14,6 @@ mongoose.connect(
   () => console.log('connected!!!')
 )
 
-//app.use(cors())
-
 app.use(express.static(`${__dirname}/dist`))
 
 app.use(bodyParser.json())
@@ -24,9 +22,9 @@ app.use(logger)
 
 app.use('/api', router)
 
-app.use(errorHandler)
+app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
 
-app.get('/*', (req, res) => res.status(404).json({ message: 'Route not found' }))
+app.use(errorHandler)
 
 app.listen(port, () => console.log(`app is listening on port ${port}`))
 
