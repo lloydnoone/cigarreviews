@@ -62,17 +62,28 @@ function update(req, res, next) {
 //comment create - /cigars/:id/comments
 function commentCreate(req, res, next) {
   req.body.user = req.currentUser
-  console.log('currentUser', req.currentUser)
   Cigar
     .findById(req.params.id)
     .then(cigar => {
-      console.log(cigar)
       if (!cigar) return res.status(404).json({ message: 'Not Found' })
+      console.log('Body is: ', req.body)
       cigar.comments.push(req.body)
       return cigar.save()
     })
     .then(cigar => res.status(201).json(cigar))
     .catch(next)
+}
+
+//comment show - /cigars/:id/comments
+function commentShow(req, res) {
+  Cigar
+    .findById(req.params.id)
+    .populate('comments.user')
+    .then(cigar => {
+      if (!cigar) return res.status(404).json({ message: 'cigar id not found' })
+      res.status(200).json(cigar.comments)
+    })
+    .catch(err => res.status(400).json(err))
 }
 
 //comment delete - /cigars/:id/comments/:commentId
@@ -97,7 +108,8 @@ module.exports = {
   destroy,
   update,
   commentCreate,
-  commentDelete
+  commentDelete,
+  commentShow
 }
 
 /* jacks implementation

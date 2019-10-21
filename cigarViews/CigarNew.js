@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import LocalAuth from '../lib/localAuth'
 
 class CigarNew extends React.Component {
   constructor() {
@@ -10,7 +11,8 @@ class CigarNew extends React.Component {
         name: '',
         strength: '',
         gauge: '',
-        origin: ''
+        origin: '',
+        image: ''
       }
     }
     this.handleChange = this.handleChange.bind(this)
@@ -26,57 +28,59 @@ class CigarNew extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.post('/api/cigars', this.state.data)
-      .then(res => console.log(res.data))
+    axios.post('/api/cigars', this.state.data, {
+      headers: { Authorization: `Bearer ${LocalAuth.getToken()}` }
+    })
       .then(res => this.props.history.push(`/cigars/${res.data._id}`))
       .catch(err => this.setState({ errors: err.message }))
   }
 
   render() {
-    const { data: { name, strength, gauge, origin } } = this.state
-    console.log('name: ', name)
+    const { data: { name, strength, gauge, origin, image } } = this.state
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="field">
+      <div className='formWrapper'>
+        <form className='panelWrapper' onSubmit={this.handleSubmit}>
+          <h2>New Cigar</h2>
           <label>Name</label>
           <input
             placeholder="Name"
             name="name"
             onChange={this.handleChange}
-            vslue={name}
+            value={name}
           />
-        </div>
-        <div className="field">
           <label>Strength</label>
           <input
             placeholder="Strength"
             name="strength"
             onChange={this.handleChange}
-            vslue={strength}
+            value={strength}
           />
-        </div>
-        <div className="field">
           <label>gauge</label>
           <input
             placeholder="Gauge"
             name="gauge"
             onChange={this.handleChange}
-            vslue={gauge}
+            value={gauge}
           />
-        </div>
-        <div className="field">
           <label>Origin</label>
           <input
             placeholder="Origin"
             name="origin"
             onChange={this.handleChange}
-            vslue={origin}
+            value={origin}
           />
-        </div>
-        <button type="submit">
-          submit
-        </button>
-      </form>
+          <label>Image URL</label>
+          <input
+            placeholder='Image URL'
+            name='image'
+            onChange={this.handleChange}
+            value={image}
+          />
+          <button type="submit">
+            submit
+          </button>
+        </form>
+      </div>
     )
   }
 }

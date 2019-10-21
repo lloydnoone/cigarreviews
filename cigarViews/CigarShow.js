@@ -2,16 +2,18 @@ import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import LocalAuth from '../lib/localAuth'
+import Comments from '../common/Comments'
 
 class CigarShow extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      cigar: null
+      cigar: null,
+      text: '',
+      comments: []
     }
     this.handleDelete = this.handleDelete.bind(this)
-    this.handleSubmitComment = this.handleSubmitComment.bind(this)
   }
 
   componentDidMount() {
@@ -30,10 +32,6 @@ class CigarShow extends React.Component {
       .catch(err => console.log(err))
   }
 
-  handleSubmitComment() {
-    
-  }
-
   isOwner() {
     return LocalAuth.getPayload().sub === this.state.cigar.user._id
   }
@@ -42,19 +40,31 @@ class CigarShow extends React.Component {
     if (!this.state.cigar) return null
     const { cigar } = this.state
     return (
-      <div>
-        <h1>{cigar.name}</h1>
-        <p>{cigar.strength}</p>
-        <p>{cigar.gauge}</p>
-        <p>{cigar.origin}</p>
-        {this.isOwner() && 
-          <>
-            <Link to={`/cigars/${cigar._id}/edit`}>
-              Edit this cigar
-            </Link>
-            <button onClick={this.handleDelete}>Delete this cigar</button>
-          </>
-        }
+      <div className='showWrapper'>
+        <div className='imgAndInfo'>
+          <img src={cigar.image} alt={cigar.name} />
+          <div className='panelWrapper'>
+            <div>
+              <h1>{cigar.name}</h1>
+              <p>Strength: {cigar.strength}</p>
+              <p>Gauge: {cigar.gauge}</p>
+              <p>Origin: {cigar.origin}</p>
+              <p>Posted by: {cigar.user.username}</p>
+            </div>
+            <div>
+              {this.isOwner() &&
+                <>
+                  <Link to={`/cigars/${cigar._id}/edit`}>
+                    <button>Edit cigar</button>
+                  </Link>
+                  <button onClick={this.handleDelete}>Delete cigar</button>
+                </>
+              }
+            </div>
+          </div>
+        </div>
+        <h2>Comments</h2>
+        <Comments cigarId={this.props.match.params.id} userId={this.state.cigar.user._id}/>
       </div>
     )
   }

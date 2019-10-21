@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
+import CigarCard from '../common/CigarCard'
+
 class CigarIndex extends React.Component {
   constructor() {
     super()
@@ -21,23 +23,17 @@ class CigarIndex extends React.Component {
     console.log(this.state)
     if (!this.state.cigars) return null
     return (
-      <div>
-        <h1>Cigar Index</h1>
-        {this.state.cigars.map(cigar => (
-          <Link key={cigar.name} to={`/cigars/${cigar._id}`}>
-            <div>
-              <h2>{cigar.name}</h2>
-              <p>{cigar.strength}</p>
-              <p>{cigar.gauge}</p>
-              <p>{cigar.origin}</p>
-              <p>{cigar.user.username}</p>
-            </div>
-          </Link>
-        ))}
+      <>
+        <h1>Cigars</h1>
         <Link to={'/cigars/new'}>
-          Add cigar
+            Add cigar
         </Link>
-      </div>
+        <div className='indexWrapper'>
+          {this.state.cigars.map(cigar => (
+            <CigarCard key={cigar.name} {...cigar}/>
+          ))}
+        </div>
+      </>
     )
   }
 }

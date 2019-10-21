@@ -1,1 +1,167 @@
+$bg: #BCAB79;
+$navred: #8C1C13;
+$bordergrey: #64403E;
+$buttonred: #BF4342;
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1516945409304-707a6fa79a02?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: 'Oldenburg', cursive;
+  color: rgb(27, 14, 14)
+}
+
+nav {
+  display: flex;
+  justify-content: flex-start;
+  background: $navred;
+  height: 70px;
+  border: solid 1px $bordergrey;
+  a{
+    font-size: 24px;
+    margin: 20px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: rgb(27, 14, 14);
+  margin-left: 20px;
+  cursor: pointer;//url('./cigarpointer.png');
+}
+
+h1 {
+  margin-left: 20px;
+}
+
+h2{
+  margin: 20px;
+  color: $buttonred;
+  font-size: 40px;
+}
+
+button {
+  width: 120px;
+  height: 50px;
+  background: $buttonred;
+  border: solid 1px $bordergrey;
+  outline: none;
+  margin: 5px;
+  font-size: 18px;
+}
+
+textarea {
+  width: 60%;
+}
+
+input {
+  width: 96%;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 18px;
+  margin: 5px;
+}
+
+label {
+  margin-top: 10px;
+}
+
+.hero {
+  background-image: url('https://images.unsplash.com/photo-1549316321-6298b4bae23d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1368&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+.indexWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-right: 20px;
+  
+  a{
+    width: 30%;
+    min-width: 500px;
+    max-width: 500px;
+    .cigarCard {
+      background: #6C6061;
+      margin: 20px;
+      padding: 20px;
+      width: 90%;
+      min-width: 500px;
+      max-width: 500px;
+      border-radius: 10px;
+      border: solid 1px grey;
+      box-shadow: 3px 4px 10px -1px $bordergrey;
+      img {
+        width: 100%;
+        height: 400px;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+.showWrapper {
+  background-image: url('https://images.unsplash.com/photo-1568172976611-386ce1c31764?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 40px;
+  height: 100%;
+  .imgAndInfo {
+    display: flex;
+    flex-direction: row;
+  }
+  img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset -1px 2px 39px -8px $bordergrey;
+    border: solid 1px black;
+    border-radius: 20px;
+    width: 100%;
+    height: 30vw;
+  }
+}
+
+.panelWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #6C6061;
+  margin: 20px;
+  padding: 20px;
+  width: 100%;
+  border-radius: 10px;
+  border: solid 1px grey;
+  box-shadow: 3px 4px 10px -1px $bordergrey;
+}
+
+.formWrapper {
+  background-image: url('https://images.unsplash.com/photo-1561994571-36afb0b11e3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  padding: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .panelWrapper {
+    width: 30%;
+    min-width: 500px;
+    max-width: 500px;
+  }
+}
+
+
+
 

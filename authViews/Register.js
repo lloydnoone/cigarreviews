@@ -27,35 +27,38 @@ class Register extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h2>Register</h2>
-        <label>Username</label>
-        <input
-          name='username'
-          placeholder='Username'
-          onChange={this.handleChange}
-        />
-        <label>Email</label>
-        <input
-          name='email'
-          placeholder='name@email.com'
-          onChange={this.handleChange}
-        />
-        <label>Password</label>
-        <input
-          name='password'
-          placeholder='Password'
-          type='password'
-          onChange={this.handleChange}
-        />
-        <label>Password Confirmation</label>
-        <input
-          name='passwordConfirmation'
-          placeholder='Password Confirmation'
-          onChange={this.handleChange}
-        />
-        <button type='submit'>Register</button>
-      </form>
+      <div className='formWrapper'>
+        <form className='panelWrapper' onSubmit={this.handleSubmit}>
+          <h2>Register</h2>
+          <label>Username</label>
+          <input
+            name='username'
+            placeholder='Username'
+            onChange={this.handleChange}
+          />
+          <label>Email</label>
+          <input
+            name='email'
+            placeholder='name@email.com'
+            onChange={this.handleChange}
+          />
+          <label>Password</label>
+          <input
+            name='password'
+            placeholder='Password'
+            type='password'
+            onChange={this.handleChange}
+          />
+          <label>Password Confirmation</label>
+          <input
+            name='passwordConfirmation'
+            placeholder='Password Confirmation'
+            onChange={this.handleChange}
+          />
+          <button type='submit'>Register</button>
+        </form>
+      </div>
+      
     )
   }
 }

@@ -39,28 +39,37 @@ mongoose.connect(
             gauge: 32,
             origin: 'Havana',
             user: users[0],
-            //comments: 
+            image: 'https://images.unsplash.com/photo-1514514589924-94eda1732498?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+            comments: [
+              {
+                text: 'Test comment...',
+                user: users[0]
+              }
+            ]
           },
           {
             name: 'Romeo Et Julietta',
             strength: 'medium-light',
             gauge: 38,
             origin: 'Havana',
-            user: users[1]
+            user: users[1],
+            image: 'https://cigarsindia.in/image/cache/data/Romeo2/Romeo%20Y%20Julieta%20-%20Wide%20Churchills,%20cigars%20india-500x500.jpg'
           },
           {
             name: 'Partagas',
             strength: 'medium-full',
             gauge: 52,
             origin: 'Havana',
-            user: users[2]
+            user: users[2],
+            image: 'https://www.cubancigar-shop.com/media/filter/medium/img/maxresdefault_1_lusitanias_2.jpg'
           },
           {
             name: 'Cohiba',
             strength: 'medium-full',
             gauge: 36,
             origin: 'Havana',
-            user: users[0]
+            user: users[0],
+            image: 'https://cigarsindia.in/image/cache/data/Amati/Cohiba%20Piramides,%20cigars%20india-500x500.jpg'
           }
         ])
       })

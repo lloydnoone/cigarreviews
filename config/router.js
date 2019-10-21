@@ -13,6 +13,7 @@ router.route('/cigars/:id')
   .put(secureRoute, cigars.update)
 
 router.route('/cigars/:id/comments')
+  .get(cigars.commentShow)
   .post(secureRoute, cigars.commentCreate)
 
 router.route('/cigars/:id/comments/:commentId')
