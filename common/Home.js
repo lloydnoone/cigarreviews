@@ -1,9 +1,7 @@
 import React from 'react'
 
 const Home = () => (
-  <main className='hero'>
-    <h1>Home Page</h1>
-  </main>
+  <main className='hero'></main>
 )
 
 export default Home

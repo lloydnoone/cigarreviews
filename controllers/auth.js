@@ -5,7 +5,10 @@ const { secret } = require('../config/environment') //a plain string to encode o
 function register(req, res, next) {
   User
     .create(req.body)// same as other creates but runs our extra pre save and validate methods. See model/user for these
-    .then(user => res.status(201).json({ message: `Thanks for registering ${user.username}` }))
+    .then(user => {
+      const token = jwt.sign( { sub: user._id }, secret, { expiresIn: '6h' } )
+      res.status(201).json({ message: `Thanks for registering ${user.username}`, token })
+    })
     .catch(next)
 }
 

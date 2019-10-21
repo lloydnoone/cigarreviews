@@ -8,35 +8,30 @@ class Comments extends React.Component {
 
     this.state = {
       text: '',
-      comments: []
+      comments: this.props.cigar.comments
     }
     this.handleDeleteComment = this.handleDeleteComment.bind(this)
     this.handleSubmitComment = this.handleSubmitComment.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
 
-  componentDidMount() {
-    axios.get(`/api/cigars/${this.props.cigarId}/comments`)
-      .then(res => this.setState({ comments: res.data }))
-      .catch(err => console.log(err))
-  }
-
   handleDeleteComment(e, commentId) {
+    const  { _id } = this.props.cigar
     e.preventDefault()
-    const cigarId = this.props.cigarId
-    axios.delete(`/api/cigars/${cigarId}/comments/${commentId}`, {
+    axios.delete(`/api/cigars/${_id}/comments/${commentId}`, {
       headers: { Authorization: `Bearer ${LocalAuth.getToken()}` }
     })
       .then((res) => {
-        const commentsArr = [...res.data.comments]
-        this.setState({ comments: commentsArr })
+        console.log('comments: ', res.data.comments)
+        const comments = [...res.data.comments]
+        this.setState({ comments })
       })
       .catch(err => console.log(err))
   }
 
   handleSubmitComment(e) {
     e.preventDefault()
-    const cigarId = this.props.cigarId
+    const cigarId = this.props.cigar._id
     axios.post(`/api/cigars/${cigarId}/comments`, { text: this.state.text }, {
       headers: { Authorization: `Bearer ${LocalAuth.getToken()}` }
     })
@@ -52,7 +47,7 @@ class Comments extends React.Component {
   }
 
   isOwner() {
-    return LocalAuth.getPayload().sub === this.props.userId
+    return LocalAuth.getPayload().sub === this.props.cigar.user._id
   }
 
   render() {

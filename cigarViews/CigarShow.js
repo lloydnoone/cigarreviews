@@ -17,7 +17,7 @@ class CigarShow extends React.Component {
   }
 
   componentDidMount() {
-    const cigarId = this.props.match.params.id
+    const cigarId = this.props.match.params.id //only need this reference once
     axios.get(`/api/cigars/${cigarId}`)
       .then(res => this.setState({ cigar: res.data }))
       .catch(err => console.log(err))
@@ -64,7 +64,7 @@ class CigarShow extends React.Component {
           </div>
         </div>
         <h2>Comments</h2>
-        <Comments cigarId={this.props.match.params.id} userId={this.state.cigar.user._id}/>
+        <Comments cigar={this.state.cigar} comments={this.state.cigar.comments}/*userId={this.state.cigar.user._id}*//>
       </div>
     )
   }

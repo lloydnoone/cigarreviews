@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import LocalAuth from '../lib/localAuth'
 
 class Register extends React.Component {
   constructor() {
@@ -21,7 +22,10 @@ class Register extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     axios.post('/api/register', this.state.data)
-      .then(() => this.props.history.push('/'))
+      .then((res) => {
+        LocalAuth.setToken(res.data.token)
+        this.props.history.push('/cigars')
+      })
       .catch(err => console.log(err))
   }
 
@@ -53,6 +57,7 @@ class Register extends React.Component {
           <input
             name='passwordConfirmation'
             placeholder='Password Confirmation'
+            type='password'
             onChange={this.handleChange}
           />
           <button type='submit'>Register</button>

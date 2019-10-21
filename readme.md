@@ -2,38 +2,11 @@
 
 # RESTful API
 
-## Introduction
+## bug fixes
 
-Your task is to build a RESTful Express API! You should include INDEX and CREATE for a single resource. There is no starter code for this assignment, so you should build everything from scratch.
-
-There is nothing to stop you from copy / pasting from the classwork you have done today, but if you do **you will not learn anything** from this homework.
-
-Instead we advise that you build out the API slowly and test as you go.
-
-### Requirements
-
-Use your lesson notes along with the classwork from today as a reference.
-
-* You should have one model (of your choice)
-* You should be able to perform full CRUD actions
-* Include a seeds file
-
-yarn init
-index.js
-install express, bodyparser, mongoose
-exp, app mong and body requires
-environment file
-logger
-mongoose connect adn listen
-
-model and export it
-
-seeds file
-
-use robo
-
-controller -> view cycle plus directories
-index first, export it and test
-then create
-
-show, delete and update if poss
+- log in button on phones
+- improve responsiveness
+- improve error handling
+- readme
+- style edit page
+- add burger menu
