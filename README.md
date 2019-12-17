@@ -5,7 +5,7 @@ fullstack react app
 
 ![image](https://github.com/lloydnoone/cigarreviews/blob/master/Screenshot%202019-10-22%20at%2021.05.09.png?raw=true)
 
-This was a project assigned to me by General Assembly during a software enginerring immersive course. The purpose of the project was to solidify the skills we learnt while studying back-end technologies. This inluded learning react and interacting with public API's, Node.js and its popular packages. 
+This was a project assigned to me by General Assembly during a software engineering immersive course. The purpose of the project was to solidify the skills we learnt while studying back-end technologies. This inluded learning react and interacting with public API's, Node.js and its popular packages. 
 
 At that point in the course we had covered using react as a front end framework. So, after covering backend in the next unit we were given a weekend to put it all together by making our own simple API, a database using mongo, brcypt for authentication and react for the front-end. It was a solo project and we had two days to quickly put it together.
 
