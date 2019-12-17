@@ -72,13 +72,23 @@ router.route('/profile')
   
 ```
 
-## Challenges and future improvements
+## Wins and Blockers
 
 The main challenge in this project was figuring out the best way to cyle through each working part pf the app and developing them in iterations as each part grew. This was especially challenging as i had only just picked up most of these technologies and given the time constraint for the initial deliverable.
 
 The part where i had the most difficulty was picking up authentication. It was hard to understand but i realised there a some functions in packages that i dont have to completely understand how they work yet as long as i know what they do.
 
+It was a good feeling to pull everything together that we had learned and gain the ability to actually make something useful and deploy it. Once i got over some initail hurdles and setup i managed to get everything working quite quickly and spent some time geting more comfortable with react. 
+
+## Future Features
+
 The main future improvement for the project would be moslty front-end authentication and giving the user better feedback when something does or does not work. The initial deliverable was after two days but i will continue to work on this in my spare time.
+
+## Key Learnings
+
+One sticking point i had during this project was knowing when to ask for help and not spend too much time on problems on my own. I ended up trying to solve a problem and going down completely the wrong route. When i finally asked for help the solution was a lot more simple than i realised. This was frustrating but also an important lesson for me.
+
+A large part of my learning on this was authentication. I spent a lot of time going over what we were shown before i eventually understood it. I feel a lot more comfortable with it now.
 
 ## Author 
 
